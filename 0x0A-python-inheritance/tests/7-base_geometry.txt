@@ -1,42 +1,24 @@
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
->>> bg = BaseGeometry()
->>> bg.integer_validator("my_int", 12)
->>> bg.integer_validator("width", 89)
->>> bg.integer_validator("name", "John")
-Traceback (most recent call last):
-   ...
-TypeError: name must be an integer
+The TEST Module:
 
->>> bg.integer_validator("age", 0)
-Traceback (most recent call last):
-   ...
-ValueError: age must be greater than 0
+    >>> TEST_FXN = __import__("TEST").TEST_FXN
 
->>> bg.integer_validator("distance", -4)
-Traceback (most recent call last):
-   ...
-ValueError: distance must be greater than 0
+Make Sure Documentation Exists:
 
->>> bg.integer_validator(None, 1)
->>> bg.integer_validator(1, 1)
+    >>> module_documentation = __import__("TEST").__doc__
+    >>> print(len(module_documentation) > 0)
+    True
 
->>> bg.area()
-Traceback (most recent call last):
-   ...
-Exception: area() is not implemented
+    >>> function_documentation = __import__("TEST").TEST_FXN.__doc__
+    >>> print(len(function_documentation) > 0)
+    True
 
->>> dir(bg) #doctest: +NORMALIZE_WHITESPACE
-['__class__', '__delattr__', '__dict__', '__dir__',
- '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__',
- '__gt__', '__hash__', '__init__', '__le__', '__lt__',
- '__module__', '__ne__', '__new__', '__reduce__',
- '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__',
- '__str__', '__subclasshook__', '__weakref__', 'area', 'integer_validator']
+Correct Usage:
 
->>> dir(bg) == dir(BaseGeometry)
-True
+    >>> print(TEST_FXN(1, 2))
+    3
 
->>> bg = BaseGeometry(2)
-Traceback (most recent call last):
-   ...
-TypeError: object() takes no parameters
+On Errors:
+
+    >>> print(TEST_FXN(4, "School"))
+    Traceback (most recent call last):
+    TypeError: b must be an integer
