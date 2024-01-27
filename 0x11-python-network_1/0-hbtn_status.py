@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-"""The script that requests content from `https://intranet.hbtn.io/status`"""
+"""
+The script that requests content from `https://intranet.hbtn.io/status`
+"""
 
 import urllib.request
-
 
 if __name__ == "__main__":
     req = 'https://intranet.hbtn.io/status'
